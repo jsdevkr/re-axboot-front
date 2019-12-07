@@ -1,0 +1,36 @@
+{
+  "name": "re-axboot-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsdevkr/re-axboot-front.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsdevkr/re-axboot-front/issues"
+  },
+  "homepage": "https://github.com/jsdevkr/re-axboot-front#readme",
+  "dependencies": {
+    "antd": "^3.26.0",
+    "emotion": "^10.0.23",
+    "eslint": "^6.7.2",
+    "less": "^3.10.3",
+    "lodash": "^4.17.15",
+    "ncp": "^2.0.0",
+    "next": "^9.1.4",
+    "next-compose-plugins": "^2.2.0",
+    "next-images": "^1.2.0",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.7.3"
+  }
+}
