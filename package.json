@@ -1,8 +1,8 @@
 {
-  "name": "querypie.com",
+  "name": "re-axboot-front",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "Application Admin Boilerplate made with React & TS",
+  "main": null,
   "scripts": {
     "dev": "cross-env NODE_ENV=development PORT=3000 node server.js",
     "build": "next build",
