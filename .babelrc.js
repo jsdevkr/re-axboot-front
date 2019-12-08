@@ -1,4 +1,4 @@
-// const env = require('./env-config.js');
+const env = require('./env-config.js');
 
 module.exports = {
   presets: [
@@ -8,6 +8,7 @@ module.exports = {
       {
         targets: 'ie >= 11, cover 99%',
         modules: false,
+        useBuiltIns: 'usage'
       },
     ],
     '@zeit/next-typescript/babel',
@@ -15,13 +16,13 @@ module.exports = {
   plugins: [
     ['@babel/plugin-proposal-decorators', { legacy: true }],
     ['@babel/plugin-proposal-class-properties', { loose: true }],
+    ['transform-define', env],
     [
-      'emotion',
+      'styled-components',
       {
-        sourceMap: true,
-        autoLabel: process.env.NODE_ENV !== 'production',
-        labelFormat: '[local]',
-        cssPropOptimization: true,
+        ssr: true,
+        displayName: true,
+        preprocess: false,
       },
     ],
   ],
