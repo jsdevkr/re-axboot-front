@@ -1,11 +1,22 @@
 import * as React from 'react';
-import { styled } from 'styled';
+import Link from 'next/link';
 
 interface IProps {}
 const App: React.FC<IProps> = () => {
   return (
     <>
       <div>INDEX CONTENT</div>
+      <div>INDEX CONTENT</div>
+      <div>INDEX CONTENT</div>
+      <div>INDEX CONTENT</div>
+      <div>INDEX CONTENT</div>
+      <div>INDEX CONTENT</div>
+      <div>INDEX CONTENT</div>
+      <div>
+        <Link href="/page1">
+          <a>Page1</a>
+        </Link>
+      </div>
     </>
   );
 };

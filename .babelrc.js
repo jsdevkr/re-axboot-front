@@ -8,7 +8,7 @@ module.exports = {
       {
         targets: 'ie >= 11, cover 99%',
         modules: false,
-        useBuiltIns: 'usage'
+        useBuiltIns: 'usage',
       },
     ],
     '@zeit/next-typescript/babel',
@@ -17,13 +17,5 @@ module.exports = {
     ['@babel/plugin-proposal-decorators', { legacy: true }],
     ['@babel/plugin-proposal-class-properties', { loose: true }],
     ['transform-define', env],
-    [
-      'styled-components',
-      {
-        ssr: true,
-        displayName: true,
-        preprocess: false,
-      },
-    ],
   ],
 };

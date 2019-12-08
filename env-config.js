@@ -1,15 +1,15 @@
 const configs = {
   development: {
-    API_HOST: 'https://alpha-www.querypie.com',
+    API_HOST: 'https://alpha-www.axboot.com',
   },
   alpha: {
-    API_HOST: 'https://alpha-www.querypie.com',
+    API_HOST: 'https://alpha-www.axboot.com',
   },
   beta: {
-    API_HOST: 'https://beta-www.querypie.com',
+    API_HOST: 'https://beta-www.axboot.com',
   },
   production: {
-    API_HOST: 'https://www.querypie.com',
+    API_HOST: 'https://www.axboot.com',
   },
 };
 

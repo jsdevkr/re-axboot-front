@@ -1,5 +1,3 @@
-import { lighten, darken } from './colorUtil';
-
 type Direction = 'row' | 'column';
 type JustifyContent =
   | 'normal'
@@ -54,32 +52,3 @@ export const SMixinFlexColumn = (
   alignItems: AlignItems = 'center',
   flexWrap: FlexWrap = 'nowrap',
 ) => SMixinFlex({ direction: 'column', justifyContent, alignItems, flexWrap });
-
-export const SMixinScrollBar = (
-  size: number = 12,
-  trackColor: string = '#4D4D4D',
-  thumbColor: string = '#eee',
-) => `
-  &::-webkit-scrollbar {
-    width: ${size}px;
-    height: ${size}px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: ${thumbColor};
-  }
-  
-  &::-webkit-scrollbar-track:vertical {
-    background: ${trackColor};
-    border-left: 1px solid ${lighten(thumbColor, 0.2)};
-  }
-  &::-webkit-scrollbar-track:horizontal {
-    background: ${trackColor};
-    border-top: 1px solid ${lighten(thumbColor, 0.2)};
-  }
-  &::-webkit-scrollbar-corner{
-    border-top: 1px solid ${lighten(thumbColor, 0.2)};
-    border-left: 1px solid ${lighten(thumbColor, 0.2)};
-  }
-
-`;

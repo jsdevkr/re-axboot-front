@@ -1,32 +1,6 @@
 import theme from '../styles/theme';
-import * as styledComponents from 'styled-components';
 
-export { theme };
-
-const {
-  default: styled,
-  ThemeProvider,
-  withTheme,
-  keyframes,
-} = styledComponents as styledComponents.ThemedStyledComponentsModule<typeof theme>;
-
-export { styled, ThemeProvider, withTheme, keyframes };
-
-export {
-  darken,
-  lighten,
-  saturate,
-  desaturate,
-  grayscale,
-  whiten,
-  blacken,
-  invert,
-  isDark,
-  opaquer,
-  alpha,
-} from './colorUtil';
-
-export { SMixinFlex, SMixinFlexRow, SMixinFlexColumn, SMixinScrollBar } from './mixins';
+export { SMixinFlex, SMixinFlexRow, SMixinFlexColumn } from './mixins';
 
 const font1 = 'objektiv-mk1, sans-serif';
 const font2 = 'acumin-pro, sans-serif';
