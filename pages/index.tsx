@@ -1,7 +1,9 @@
-import * as React from 'react';
-import Link from 'next/link';
-
-import styled from '@emotion/styled';
+import React, { useContext } from "react";
+import Link from "next/link";
+import styled from "@emotion/styled";
+import { DispatchConfigContext, ConfigContext } from "../store/initialConfig";
+import { ConfigActionType } from "../common/@interface";
+import Card from "../components/Card";
 
 const Button = styled.button`
   color: turquoise;
@@ -9,19 +11,17 @@ const Button = styled.button`
   border-radius: 5px;
 `;
 const SC = {
-  Button,
+  Button
 };
 
 interface IProps {}
 const App: React.FC<IProps> = () => {
+  const dispatchConfig = useContext(DispatchConfigContext);
+  const config = useContext(ConfigContext);
+
   return (
     <>
-      <div>INDEX CONTENT</div>
-      <div>INDEX CONTENT</div>
-      <div>INDEX CONTENT</div>
-      <div>INDEX CONTENT</div>
-      <div>INDEX CONTENT</div>
-      <div>INDEX CONTENT</div>
+      <Card></Card>
       <div>INDEX CONTENT</div>
       <div>
         <Link href="/page1">
@@ -29,7 +29,17 @@ const App: React.FC<IProps> = () => {
         </Link>
       </div>
 
-      <SC.Button>Button</SC.Button>
+      <SC.Button
+        onClick={() => {
+          dispatchConfig({ type: ConfigActionType.SET_WIDTH, value: 800 });
+        }}
+      >
+        Button
+      </SC.Button>
+
+      <div>
+        <b>WIDTH</b> :{config.width}
+      </div>
     </>
   );
 };

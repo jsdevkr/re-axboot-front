@@ -15,15 +15,17 @@
     "@emotion/styled": "^10.0.23",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-less": "^1.0.1",
-    "antd": "^3.26.0",
+    "antd": "^3.26.3",
     "emotion-theming": "^10.0.19",
     "express": "^4.17.1",
     "http-proxy-middleware": "^0.20.0",
+    "immer": "^5.0.1",
     "less": "^3.10.3",
     "next": "9.1.4",
     "next-compose-plugins": "^2.2.0",
     "react": "16.12.0",
-    "react-dom": "16.12.0"
+    "react-dom": "16.12.0",
+    "use-immer": "^0.3.5"
   },
   "devDependencies": {
     "@types/node": "^12.12.14",
