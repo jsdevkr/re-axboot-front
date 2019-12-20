@@ -1,45 +1,9 @@
 const colors = {
-  SAPPHIRE_500: '#573EFF',
-  SAPPHIRE_A100: '#573EFF',
-  SAPPHIRE_900: '#1F1A66',
-  SAPPHIRE: '#2e2699',
-  MINT_500: '#1CDB8B',
-  BLUE_500: '#009BFF',
-  ORANGE_600: '#F55109',
-  ORANGE_A700: '#F92419',
-  SAPPHIRE_800: '#2e2699',
-  GREY_600: '#606a7f',
-  WHITE: '#fff',
-  GREY_200: '#d7dce4',
-  ORANGE_500: '#ff6702',
-  BLACK: '#000',
-  ICE_BLUE_TWO: '#edeff2',
+  white: "#fff"
 };
 
 const theme = {
-  WHITE: colors.WHITE,
-  BLACK: colors.BLACK,
-  SAPPHIRE_800: colors.SAPPHIRE_800,
-  SAPPHIRE_900: colors.SAPPHIRE_900,
-  GREY_600: colors.GREY_600,
-  SAPPHIRE_500: colors.SAPPHIRE_500,
-  primary_color: colors.SAPPHIRE_500,
-  primary_color_1: colors.SAPPHIRE,
-  success_color: colors.MINT_500,
-  info_color: colors.BLUE_500,
-  warning_color: colors.ORANGE_600,
-  error_color: colors.ORANGE_A700,
-  text_color: colors.SAPPHIRE_800,
-  text_secondary_color: colors.GREY_600,
-  text_dark_color: colors.WHITE,
-  text_dark: colors.BLACK,
-  text_dark_secondary_color: colors.GREY_200,
-  point_color_1: colors.ORANGE_500,
-  point_color_2: colors.SAPPHIRE_500,
-  point_color_3: colors.SAPPHIRE_A100,
-  default_bg_color: colors.ICE_BLUE_TWO,
-  border_color: colors.GREY_200,
+  white: colors.white
 };
 
 export default theme;
-// module.exports = theme;

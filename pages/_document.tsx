@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Head, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
   render() {
@@ -11,8 +11,12 @@ export default class MyDocument extends Document {
             name="viewport"
           />
 
-          <link color="#BE9300" href="/static/favicon.png" rel="mask-icon" />
-          <link href="/static/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+          <link color="#BE9300" href="/public/favicon.png" rel="mask-icon" />
+          <link
+            href="/public/favicon.ico"
+            rel="shortcut icon"
+            type="image/x-icon"
+          />
         </Head>
         <body>
           <Main />

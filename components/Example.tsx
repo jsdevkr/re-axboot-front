@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { ConfigContext } from "../store/initialConfig";
 
 interface IProps {}
-const Card: React.FC<IProps> = () => {
+const Example: React.FC<IProps> = () => {
   const config = useContext(ConfigContext);
   return (
     <Wrap>
@@ -18,4 +18,4 @@ const Card: React.FC<IProps> = () => {
 const Wrap = styled.div`
   font-size: 20px;
 `;
-export default Card;
+export default Example;
