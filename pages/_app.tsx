@@ -1,31 +1,25 @@
+import React, { useState, useReducer } from "react";
 import { NextPage } from "next";
 import App, { AppProps } from "next/app";
-import React, { useState, useReducer } from "react";
-import { ThemeProvider } from "emotion-theming";
-import { useImmerReducer } from "use-immer";
-import "styles/app.ts";
-import { lightColors } from "styles/colors";
 import axios from "axios";
+import { useImmerReducer } from "use-immer";
+import { lightColors } from "styles/colors";
+import "styles/app.ts";
 import {
-  initialConfig,
   ConfigContext,
   DispatchConfigContext,
   DispatchThemeContext
 } from "store/initialConfig";
 import { configReducer } from "store/configReducer";
 import { themeReducer } from "store/themeReducer";
+import { ThemeProvider } from "components/styled";
+import defaultConfig from "store/defaultConfig";
 
-interface IProps {
-  hasErrored?: boolean;
-  isLoading?: boolean;
-  isServer?: boolean;
-  errorMessage?: string;
-}
-
+interface IProps {}
 const MyApp: NextPage<AppProps & IProps, IProps> = props => {
   const [config, dispatchConfig] = useImmerReducer(
     configReducer,
-    initialConfig
+    defaultConfig
   );
   const [theme, dispatchTheme] = useImmerReducer(themeReducer, {
     colors: lightColors

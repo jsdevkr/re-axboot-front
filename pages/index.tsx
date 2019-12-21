@@ -1,50 +1,38 @@
-/** @jsx jsx */
 import React, { useContext } from "react";
 import Link from "next/link";
-import { jsx, css } from "@emotion/core";
-import { useTheme } from "emotion-theming";
 import { Colors } from "styles/colors";
 import {
   DispatchConfigContext,
   ConfigContext,
   DispatchThemeContext
 } from "store/initialConfig";
-import { ConfigActionType, ThemeType } from "common/@interface";
+import { MainLayout } from "components/layouts";
+import { ThemeContext } from "components/styled";
 import { Button } from "antd";
+import { ConfigActionType } from "common/@interface";
 
 interface IProps {}
-const App: React.FC<IProps> = () => {
+const Index: React.FC<IProps> = () => {
   const dispatchConfig = useContext(DispatchConfigContext);
   const config = useContext(ConfigContext);
   const dispatchTheme = useContext(DispatchThemeContext);
-  const color = useTheme<Colors>();
-
-  const danger = css`
-    color: red;
-    background: ${color.black};
-  `;
+  const color = useContext(ThemeContext);
 
   return (
-    <>
-      <div>
-        width: {config.width}, height: {config.height}
-      </div>
-      <div css={danger}>DASHBOARD</div>
+    <MainLayout>
+      TEST
       <Button
-        onClick={() =>
-          dispatchConfig({ type: ConfigActionType.SET_WIDTH, value: 800 })
-        }
+        onClick={() => {
+          dispatchConfig({
+            type: ConfigActionType.SET_SIDER_COLLAPSED,
+            value: !config.siderCollapsed
+          });
+        }}
       >
-        setWidth
+        Toggle Collapsed
       </Button>
-      <Button onClick={() => dispatchTheme({ type: ThemeType.dark })}>
-        setDark
-      </Button>
-      <Button onClick={() => dispatchTheme({ type: ThemeType.light })}>
-        setLight
-      </Button>
-    </>
+    </MainLayout>
   );
 };
 
-export default App;
+export default Index;

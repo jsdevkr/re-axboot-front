@@ -1,9 +1,7 @@
 import { Colors } from "styles/colors";
+import defaultConfig from "store/defaultConfig";
 
-export interface IConfig {
-  width?: number;
-  height?: number;
-}
+export type IConfig = typeof defaultConfig;
 
 export interface IConfigAction {
   type: ConfigActionType;
@@ -12,10 +10,11 @@ export interface IConfigAction {
 
 export enum ConfigActionType {
   SET_WIDTH = "width",
-  SET_HEIGHT = "height"
+  SET_HEIGHT = "height",
+  SET_SIDER_COLLAPSED = "siderCollapsed"
 }
 
-export type ConfigReducer = (state: IConfig, action: IConfigAction) => IConfig;
+export type ConfigReducer = (state: IConfig, action: IConfigAction) => void;
 
 export interface ITheme {
   colors: Colors;

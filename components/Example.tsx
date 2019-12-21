@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import styled from "@emotion/styled";
+
 import { ConfigContext } from "../store/initialConfig";
+import { styled } from "./styled";
 
 interface IProps {}
 const Example: React.FC<IProps> = () => {

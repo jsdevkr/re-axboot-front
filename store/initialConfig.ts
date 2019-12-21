@@ -1,11 +1,8 @@
 import React, { createContext } from "react";
-import { IConfig, IConfigAction, IThemeAction } from "../common/@interface";
+import { IConfigAction, IThemeAction } from "../common/@interface";
+import defaultConfig from "./defaultConfig";
 
-export const initialConfig: IConfig = {
-  width: 500,
-  height: 500
-};
-export const ConfigContext = createContext(initialConfig);
+export const ConfigContext = createContext(defaultConfig);
 export const DispatchConfigContext = createContext<(p: IConfigAction) => void>(
   p => {}
 );
