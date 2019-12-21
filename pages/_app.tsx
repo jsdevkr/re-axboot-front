@@ -1,17 +1,19 @@
 import { NextPage } from "next";
 import App, { AppProps } from "next/app";
-import React from "react";
+import React, { useState, useReducer } from "react";
 import { ThemeProvider } from "emotion-theming";
 import { useImmerReducer } from "use-immer";
 import "styles/app.ts";
-import theme from "styles/theme";
+import { lightColors } from "styles/colors";
 import axios from "axios";
 import {
   initialConfig,
   ConfigContext,
-  DispatchConfigContext
+  DispatchConfigContext,
+  DispatchThemeContext
 } from "store/initialConfig";
 import { configReducer } from "store/configReducer";
+import { themeReducer } from "store/themeReducer";
 
 interface IProps {
   hasErrored?: boolean;
@@ -25,13 +27,18 @@ const MyApp: NextPage<AppProps & IProps, IProps> = props => {
     configReducer,
     initialConfig
   );
+  const [theme, dispatchTheme] = useImmerReducer(themeReducer, {
+    colors: lightColors
+  });
   const { Component, pageProps } = props;
   return (
     <DispatchConfigContext.Provider value={dispatchConfig}>
       <ConfigContext.Provider value={config}>
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
-        </ThemeProvider>
+        <DispatchThemeContext.Provider value={dispatchTheme}>
+          <ThemeProvider theme={theme.colors}>
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </DispatchThemeContext.Provider>
       </ConfigContext.Provider>
     </DispatchConfigContext.Provider>
   );

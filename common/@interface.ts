@@ -1,3 +1,5 @@
+import { Colors } from "styles/colors";
+
 export interface IConfig {
   width?: number;
   height?: number;
@@ -14,3 +16,19 @@ export enum ConfigActionType {
 }
 
 export type ConfigReducer = (state: IConfig, action: IConfigAction) => IConfig;
+
+export interface ITheme {
+  colors: Colors;
+}
+
+export interface IThemeAction {
+  type: ThemeType;
+}
+
+export enum ThemeType {
+  default = "default",
+  dark = "dark",
+  light = "light"
+}
+
+export type ThemeReducer = (state: ITheme, action: IThemeAction) => ITheme;
