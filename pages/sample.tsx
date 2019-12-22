@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import React, { useContext } from "react";
 import Link from "next/link";
 import { Colors } from "styles/colors";
@@ -22,7 +21,11 @@ const App: React.FC<IProps> = () => {
     <>
       <div>
         width: {config.width}, height: {config.height}
+        color : {color.black};
       </div>
+      <Link href="/">
+        <a>home</a>
+      </Link>
       <div>DASHBOARD</div>
       <Button
         onClick={() =>

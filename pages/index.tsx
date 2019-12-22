@@ -21,6 +21,12 @@ const Index: React.FC<IProps> = () => {
   return (
     <MainLayout>
       TEST
+
+
+      <div>
+        width: {config.width}, height: {config.height}
+      </div>
+      
       <Button
         onClick={() => {
           dispatchConfig({
@@ -31,6 +37,10 @@ const Index: React.FC<IProps> = () => {
       >
         Toggle Collapsed
       </Button>
+
+      <Link href="/sample">
+        <a>sample</a>
+      </Link>
     </MainLayout>
   );
 };

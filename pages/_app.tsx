@@ -15,7 +15,9 @@ import { themeReducer } from "store/themeReducer";
 import { ThemeProvider } from "components/styled";
 import defaultConfig from "store/defaultConfig";
 
-interface IProps {}
+interface IProps {
+  pageName: string;
+}
 const MyApp: NextPage<AppProps & IProps, IProps> = props => {
   const [config, dispatchConfig] = useImmerReducer(
     configReducer,
@@ -24,7 +26,8 @@ const MyApp: NextPage<AppProps & IProps, IProps> = props => {
   const [theme, dispatchTheme] = useImmerReducer(themeReducer, {
     colors: lightColors
   });
-  const { Component, pageProps } = props;
+  const { Component, pageProps, pageName } = props;
+
   return (
     <DispatchConfigContext.Provider value={dispatchConfig}>
       <ConfigContext.Provider value={config}>
@@ -44,10 +47,14 @@ MyApp.getInitialProps = async ({ req }) => {
   return axios
     .get("http://apiurl")
     .then(res => {
-      return {};
+      return {
+        pageName: ""
+      };
     })
     .catch(res => {
-      return {};
+      return {
+        pageName: ""
+      };
     });
 };
 
