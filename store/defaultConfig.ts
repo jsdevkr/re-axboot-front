@@ -1,7 +1,7 @@
 const defaultConfig = {
   siderWidth: 220,
-  siderCollapsedWidth: 60,
-  siderCollapsed: false,
+  siderCollapsedWidth: 50,
+  siderCollapsed: true,
   width: 500,
   height: 500
 };

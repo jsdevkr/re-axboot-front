@@ -18,6 +18,7 @@ const MainLayout: React.FC<IProps> = ({ children }) => {
     : config.siderWidth;
 
   const Wrap = styled.div`
+    height: 100vh;
     font-size: 20px;
 
     .ant-menu-inline-collapsed {
@@ -34,81 +35,88 @@ const MainLayout: React.FC<IProps> = ({ children }) => {
       > .ant-menu-submenu
       > .ant-menu-submenu-title,
     .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
-      padding: 0 22px !important;
+      padding: 0 17px !important;
     }
   `;
 
   return (
     <Wrap>
-      <Layout>
-        <Sider
-          width={config.siderWidth}
-          collapsed={config.siderCollapsed}
-          collapsedWidth={config.siderCollapsedWidth}
-          style={{
-            overflow: "auto",
-            overflowX: "hidden",
-            height: "100vh",
-            position: "fixed",
-            left: 0
-          }}
-        >
+      <Layout style={{ height: "100%" }}>
+        <Header style={{ background: "#fff", padding: 0 }}>
           <Logo collapsed={config.siderCollapsed}>
-            <AXBootLogo color={color.white} />
+            <AXBootLogo color={color.layout_sider_text_color} />
             <label>AXBOOT</label>
           </Logo>
-          <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-            <Menu.Item key="1">
-              <Icon type="pie-chart" />
-              <span>Option 1</span>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="desktop" />
-              <span>Option 2</span>
-            </Menu.Item>
-            <SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <Icon type="user" />
-                  <span>User</span>
-                </span>
-              }
+        </Header>
+
+        <Layout>
+          <Sider
+            width={config.siderWidth}
+            collapsed={config.siderCollapsed}
+            collapsedWidth={config.siderCollapsedWidth}
+          >
+            <Menu
+              theme={color.layout_sider_menu_theme as any}
+              defaultSelectedKeys={["1"]}
+              mode="inline"
             >
-              <Menu.Item key="3">Tom</Menu.Item>
-              <Menu.Item key="4">Bill</Menu.Item>
-              <Menu.Item key="5">Alex</Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub2"
-              title={
-                <span>
-                  <Icon type="team" />
-                  <span>Team</span>
-                </span>
-              }
-            >
-              <Menu.Item key="6">Team 1</Menu.Item>
-              <Menu.Item key="8">Team 2</Menu.Item>
-            </SubMenu>
-            <Menu.Item key="9">
-              <Icon type="file" />
-              <span>File</span>
-            </Menu.Item>
-          </Menu>
-        </Sider>
-        <Layout style={{ marginLeft: contentMarginLeft }}>
-          <Header style={{ background: "#fff", padding: 0 }} />
-          <Content style={{ margin: "24px 16px 0", overflow: "initial" }}>
-            <div
-              style={{ padding: 24, background: "#fff", textAlign: "center" }}
-            >
-              {children}
-            </div>
-          </Content>
-          <Footer style={{ textAlign: "center" }}>
-            AXBOOT ©2019 Created by CHEQUER
-          </Footer>
+              <Menu.Item key="1">
+                <Icon type="pie-chart" />
+                <span>Option 1</span>
+              </Menu.Item>
+              <Menu.Item key="2">
+                <Icon type="desktop" />
+                <span>Option 2</span>
+              </Menu.Item>
+              <SubMenu
+                key="sub1"
+                title={
+                  <span>
+                    <Icon type="user" />
+                    <span>User</span>
+                  </span>
+                }
+              >
+                <Menu.Item key="3">Tom</Menu.Item>
+                <Menu.Item key="4">Bill</Menu.Item>
+                <Menu.Item key="5">Alex</Menu.Item>
+              </SubMenu>
+              <SubMenu
+                key="sub2"
+                title={
+                  <span>
+                    <Icon type="team" />
+                    <span>Team</span>
+                  </span>
+                }
+              >
+                <Menu.Item key="6">Team 1</Menu.Item>
+                <Menu.Item key="8">Team 2</Menu.Item>
+              </SubMenu>
+              <Menu.Item key="9">
+                <Icon type="file" />
+                <span>File</span>
+              </Menu.Item>
+            </Menu>
+          </Sider>
+
+          <Layout>
+            <Content style={{ margin: "24px 16px 0", overflow: "visible" }}>
+              <div
+                style={{
+                  padding: 24,
+                  background: "#fff",
+                  textAlign: "center"
+                }}
+              >
+                {children}
+              </div>
+            </Content>
+
+            <Footer style={{ textAlign: "center" }}>
+              AXBOOT ©2019 Created by CHEQUER
+            </Footer>
+          </Layout>
         </Layout>
       </Layout>
     </Wrap>
@@ -124,10 +132,11 @@ const Logo = styled.div<{ collapsed: boolean }>`
     height: 30px;
   }
   label {
-    margin-left: 10px;
-    font-size: 20px;
-    color: ${p => p.theme.white};
+    margin: 0 10px;
+    font-size: 18px;
+    color: ${p => p.theme.layout_sider_text_color};
     font-weight: bold;
+    letter-spacing: 1px;
   }
   ${p => {
     if (p.collapsed) {

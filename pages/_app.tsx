@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import App, { AppProps } from "next/app";
 import axios from "axios";
 import { useImmerReducer } from "use-immer";
-import { lightColors } from "styles/colors";
+import { defaultColors } from "styles/colors";
 import "styles/app.ts";
 import {
   ConfigContext,
@@ -24,7 +24,7 @@ const MyApp: NextPage<AppProps & IProps, IProps> = props => {
     defaultConfig
   );
   const [theme, dispatchTheme] = useImmerReducer(themeReducer, {
-    colors: lightColors
+    colors: defaultColors
   });
   const { Component, pageProps, pageName } = props;
 

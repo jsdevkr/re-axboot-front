@@ -9,6 +9,7 @@ import {
 import { ConfigActionType, ThemeType } from "common/@interface";
 import { Button } from "antd";
 import { ThemeContext } from "components/styled";
+import { MainLayout } from "components/layouts";
 
 interface IProps {}
 const App: React.FC<IProps> = () => {
@@ -18,10 +19,10 @@ const App: React.FC<IProps> = () => {
   const color = useContext(ThemeContext);
 
   return (
-    <>
+    <MainLayout>
       <div>
         width: {config.width}, height: {config.height}
-        color : {color.black};
+        color : {color.layout_sider_text_color}; theme : {color.theme};
       </div>
       <Link href="/">
         <a>home</a>
@@ -40,7 +41,9 @@ const App: React.FC<IProps> = () => {
       <Button onClick={() => dispatchTheme({ type: ThemeType.light })}>
         setLight
       </Button>
-    </>
+
+      <div style={{ height: 1000 }} />
+    </MainLayout>
   );
 };
 

@@ -1,14 +1,14 @@
 import { ThemeReducer, IThemeAction, ThemeType } from "../common/@interface";
-import { lightColors, darkColors } from "styles/colors";
+import { defaultColors, darkColors } from "styles/colors";
 
 export const themeReducer: ThemeReducer = (state, action) => {
   const { type } = action;
   switch (type) {
     case ThemeType.default:
-      state.colors = lightColors;
+      state.colors = defaultColors;
       return state;
     case ThemeType.light:
-      state.colors = lightColors;
+      state.colors = defaultColors;
       return state;
     case ThemeType.dark:
       state.colors = darkColors;
