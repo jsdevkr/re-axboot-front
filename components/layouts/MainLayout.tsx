@@ -1,120 +1,38 @@
 import React, { useContext } from "react";
-import { Layout, Menu, Icon } from "antd";
+import { Menu, Icon } from "antd";
 import { ConfigContext } from "store/initialConfig";
 import AXBootLogo from "components/AXBootLogo";
-import { SMixinFlexRow } from "styles/styledMixin";
+import { SMixinFlexRow, SMixinFlexColumn } from "styles/styledMixin";
 import { ThemeContext, styled } from "components/styled";
-
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
+import SiderMenu from "./sider/SiderMenu";
 
 interface IProps {}
 const MainLayout: React.FC<IProps> = ({ children }) => {
   const config = useContext(ConfigContext);
   const color = useContext(ThemeContext);
 
-  const contentMarginLeft = config.siderCollapsed
-    ? config.siderCollapsedWidth
-    : config.siderWidth;
-
-  const Wrap = styled.div`
-    height: 100vh;
-    font-size: 20px;
-
-    .ant-menu-inline-collapsed {
-      width: ${config.siderCollapsedWidth}px;
-    }
-    .ant-menu-inline-collapsed > .ant-menu-item,
-    .ant-menu-inline-collapsed
-      > .ant-menu-item-group
-      > .ant-menu-item-group-list
-      > .ant-menu-item,
-    .ant-menu-inline-collapsed
-      > .ant-menu-item-group
-      > .ant-menu-item-group-list
-      > .ant-menu-submenu
-      > .ant-menu-submenu-title,
-    .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
-      padding: 0 17px !important;
-    }
-  `;
-
   return (
     <Wrap>
-      <Layout style={{ height: "100%" }}>
-        <Header style={{ background: "#fff", padding: 0 }}>
-          <Logo collapsed={config.siderCollapsed}>
+      <Layout isRoot={true}>
+        <Header>
+          {/* <Logo collapsed={config.siderCollapsed}>
             <AXBootLogo color={color.layout_sider_text_color} />
             <label>AXBOOT</label>
-          </Logo>
+          </Logo> */}
         </Header>
 
-        <Layout>
-          <Sider
-            width={config.siderWidth}
-            collapsed={config.siderCollapsed}
-            collapsedWidth={config.siderCollapsedWidth}
-          >
-            <Menu
-              theme={color.layout_sider_menu_theme as any}
-              defaultSelectedKeys={["1"]}
-              mode="inline"
-            >
-              <Menu.Item key="1">
-                <Icon type="pie-chart" />
-                <span>Option 1</span>
-              </Menu.Item>
-              <Menu.Item key="2">
-                <Icon type="desktop" />
-                <span>Option 2</span>
-              </Menu.Item>
-              <SubMenu
-                key="sub1"
-                title={
-                  <span>
-                    <Icon type="user" />
-                    <span>User</span>
-                  </span>
-                }
-              >
-                <Menu.Item key="3">Tom</Menu.Item>
-                <Menu.Item key="4">Bill</Menu.Item>
-                <Menu.Item key="5">Alex</Menu.Item>
-              </SubMenu>
-              <SubMenu
-                key="sub2"
-                title={
-                  <span>
-                    <Icon type="team" />
-                    <span>Team</span>
-                  </span>
-                }
-              >
-                <Menu.Item key="6">Team 1</Menu.Item>
-                <Menu.Item key="8">Team 2</Menu.Item>
-              </SubMenu>
-              <Menu.Item key="9">
-                <Icon type="file" />
-                <span>File</span>
-              </Menu.Item>
-            </Menu>
+        <Layout hasSider={true}>
+          <Sider width={config.siderWidth}>
+            <SiderMenu menus={config.siderMenu} />
           </Sider>
 
           <Layout>
-            <Content style={{ margin: "24px 16px 0", overflow: "visible" }}>
-              <div
-                style={{
-                  padding: 24,
-                  background: "#fff",
-                  textAlign: "center"
-                }}
-              >
-                {children}
-              </div>
-            </Content>
+            <Content>{children}</Content>
 
-            <Footer style={{ textAlign: "center" }}>
-              AXBOOT ©2019 Created by CHEQUER
+            <Footer>
+              <div></div>
+              <div></div>
+              <div>AXBOOT ©2019 Created by CHEQUER</div>
             </Footer>
           </Layout>
         </Layout>
@@ -123,26 +41,70 @@ const MainLayout: React.FC<IProps> = ({ children }) => {
   );
 };
 
-const Logo = styled.div<{ collapsed: boolean }>`
-  margin: 16px;
-  height: 32px;
-  ${SMixinFlexRow("center", "center")};
-  svg {
-    width: 30px;
-    height: 30px;
-  }
-  label {
-    margin: 0 10px;
-    font-size: 18px;
-    color: ${p => p.theme.layout_sider_text_color};
-    font-weight: bold;
-    letter-spacing: 1px;
-  }
+const Wrap = styled.div`
+  height: 100vh;
+  font-size: 20px;
+`;
+
+const Layout = styled.div<{ isRoot?: boolean; hasSider?: boolean }>`
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  min-height: 0;
+  background: #f0f2f5;
+  position: relative;
+
   ${p => {
-    if (p.collapsed) {
-      return `label {display: none;}`;
+    if (p.isRoot) {
+      return `height: 100%;`;
     }
-    return "";
+    return ``;
+  }}
+  ${p => {
+    if (p.hasSider) {
+      return `flex-direction: row;`;
+    }
+    return ``;
   }}
 `;
+const Header = styled.div`
+  flex: none;
+  height: 60px;
+`;
+const Content = styled.div`
+  flex: 1;
+  overflow: auto;
+  padding: 24px;
+`;
+const Sider = styled.div<{ width?: number }>``;
+const Footer = styled.div`
+  flex: none;
+  height: 30px;
+  font-size: 12px;
+  padding: 0 20px;
+  ${SMixinFlexRow("space-between", "center")};
+`;
+
+// const Logo = styled.div<{ collapsed: boolean }>`
+//   margin: 16px;
+//   height: 32px;
+//   ${SMixinFlexRow("center", "center")};
+//   svg {
+//     width: 30px;
+//     height: 30px;
+//   }
+//   label {
+//     margin: 0 10px;
+//     font-size: 18px;
+//     color: ${p => p.theme.layout_sider_text_color};
+//     font-weight: bold;
+//     letter-spacing: 1px;
+//   }
+//   ${p => {
+//     if (p.collapsed) {
+//       return `label {display: none;}`;
+//     }
+//     return "";
+//   }}
+// `;
 export default MainLayout;

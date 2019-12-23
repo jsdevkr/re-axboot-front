@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build:config": "tsc next.config.ts",
     "dev": "cross-env NODE_ENV=development PORT=3000 node server.js",
     "build": "next build",
     "start": "next build && next start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start_next": "cross-env NODE_ENV=production PORT=9000 node server.js",
-    "start_next_1": "cross-env NODE_ENV=production PORT=9001 node server.js",
-    "start:less-var": "node -r ts-node/register/transpile-only ./scripts/generate-less-var.ts"
+    "start_next_1": "cross-env NODE_ENV=production PORT=9001 node server.js"
   },
   "dependencies": {
     "@ant-design/colors": "^3.2.2",
@@ -36,6 +36,7 @@
   "devDependencies": {
     "@types/node": "^12.12.14",
     "@types/react": "^16.9.16",
+    "babel-plugin-styled-components": "^1.10.6",
     "cross-env": "^6.0.3",
     "typescript": "^3.7.3"
   }

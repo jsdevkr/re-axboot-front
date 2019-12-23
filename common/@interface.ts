@@ -31,3 +31,12 @@ export enum ThemeType {
 }
 
 export type ThemeReducer = (state: ITheme, action: IThemeAction) => ITheme;
+
+export interface IMenuItem {
+  label?: string;
+  sublabel?: string;
+  type?: "normal" | "separator";
+  icon?: string | React.ReactElement<any>;
+  submenu?: IMenuItem[];
+  url?: string;
+}
