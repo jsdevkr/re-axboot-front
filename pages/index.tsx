@@ -7,7 +7,7 @@ import {
   DispatchThemeContext
 } from "store/initialConfig";
 import { MainLayout } from "components/layouts";
-import { ThemeContext } from "components/styled";
+import { ThemeContext } from "styled-components";
 import { Button } from "antd";
 import { ConfigActionType } from "common/@interface";
 

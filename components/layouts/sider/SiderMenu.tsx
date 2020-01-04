@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { IMenuItem } from "common/@interface";
-import { ThemeContext, styled } from "components/styled";
+import styled, { ThemeContext } from "styled-components";
 
 interface IProps {
   menus: IMenuItem[];

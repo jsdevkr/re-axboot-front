@@ -3,7 +3,7 @@ import { Menu, Icon } from "antd";
 import { ConfigContext } from "store/initialConfig";
 import AXBootLogo from "components/AXBootLogo";
 import { SMixinFlexRow, SMixinFlexColumn } from "styles/styledMixin";
-import { ThemeContext, styled } from "components/styled";
+import styled, { ThemeContext } from "styled-components";
 import SiderMenu from "./sider/SiderMenu";
 
 interface IProps {}

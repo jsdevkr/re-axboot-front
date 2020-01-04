@@ -12,7 +12,7 @@ import {
 } from "store/initialConfig";
 import { configReducer } from "store/configReducer";
 import { themeReducer } from "store/themeReducer";
-import { ThemeProvider } from "components/styled";
+import { ThemeProvider } from "styled-components";
 import defaultConfig from "store/defaultConfig";
 import { IMenuItem } from "common/@interface";
 import { Icon } from "antd";

@@ -8,7 +8,7 @@ import {
 } from "store/initialConfig";
 import { ConfigActionType, ThemeType } from "common/@interface";
 import { Button } from "antd";
-import { ThemeContext } from "components/styled";
+import { ThemeContext } from "styled-components";
 import { MainLayout } from "components/layouts";
 
 interface IProps {}
