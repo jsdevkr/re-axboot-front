@@ -1,0 +1,127 @@
+.ant-btn {
+  font-size: @font-size-base - 1px;
+  box-shadow: none;
+  &.ant-btn-sm {
+    font-size: @font-size-base - 2px;
+    padding: 0 7px;
+    > .anticon + span,
+    > span + .anticon,
+    > .qpi + span,
+    > span + .qpi {
+      margin-left: 3px;
+    }
+  }
+  &.ant-btn-lg {
+    font-size: @font-size-base;
+  }
+  > .qpi + i,
+  > i + .qpi {
+    margin-left: 8px;
+  }
+  .qpi {
+    transition: margin-left 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  > .qpi + span,
+  > span + .qpi {
+    margin-left: 8px;
+  }
+
+  background-color: @btn-default-bg;
+  color: @btn-default-color;
+  border-color: @btn-default-border;
+  &:hover,
+  &:focus {
+    background-color: @btn-default-hover-bg;
+    color: @btn-default-hover-color;
+    border-color: @btn-default-hover-border;
+  }
+  &:active,
+  &.active {
+    background-color: @btn-default-active-bg;
+    color: @btn-default-active-color;
+    border-color: @btn-default-active-border;
+  }
+
+  &.ant-btn-primary {
+    background-color: @btn-primary-bg;
+    color: @btn-primary-color;
+    border-color: @btn-primary-border;
+    &:hover,
+    &:focus {
+      background-color: @btn-primary-hover-bg;
+      color: @btn-primary-hover-color;
+      border-color: @btn-primary-hover-border;
+    }
+    &:active,
+    &.active {
+      background-color: @btn-primary-active-bg;
+      color: @btn-primary-active-color;
+      border-color: @btn-primary-active-border;
+    }
+  }
+
+  &.ant-btn-secondary {
+    background-color: @btn-secondary-bg;
+    color: @btn-secondary-color;
+    border-color: @btn-secondary-border;
+
+    &:hover,
+    &:focus {
+      background-color: @btn-secondary-hover-bg;
+      color: @btn-secondary-hover-color;
+      border-color: @btn-secondary-hover-border;
+    }
+    &:active,
+    &.active {
+      background-color: @btn-secondary-active-bg;
+      color: @btn-secondary-active-color;
+      border-color: @btn-secondary-active-border;
+    }
+  }
+}
+
+.ant-btn.ant-btn-dangerous {
+  background-color: @btn-danger-bg !important;
+  color: @btn-danger-color !important;
+  border-color: @btn-danger-border !important;
+  &:hover,
+  &:focus {
+    background-color: @btn-danger-hover-bg;
+    color: @btn-danger-hover-color;
+    border-color: @btn-danger-hover-border;
+  }
+  &:active,
+  &.active {
+    background-color: @btn-danger-active-bg;
+    color: @btn-danger-active-color;
+    border-color: @btn-danger-active-border;
+  }
+}
+
+.ant-btn {
+  &.with-icon {
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    > .qpi + span,
+    > span + .qpi {
+      margin: 0 4px;
+    }
+  }
+}
+
+.with-icon {
+  .ant-btn {
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

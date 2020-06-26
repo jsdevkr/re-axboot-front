@@ -1,3 +1,4 @@
+// 현재 환경에 맞는 API 선택
 const configs = {
   development: {
     API_HOST: "https://alpha-www.axboot.com"
@@ -12,6 +13,8 @@ const configs = {
     API_HOST: "https://www.axboot.com"
   }
 };
+
+
 
 module.exports = {
   "process.env.API_HOST": (

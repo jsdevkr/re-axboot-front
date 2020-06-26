@@ -6,6 +6,9 @@ export const configReducer: ConfigReducer = (state, action) => {
     case ConfigActionType.SET_WIDTH:
       state.width = value;
       return;
+    case ConfigActionType.SET_SIDER_WIDTH:
+      state.siderWidth = value;
+      return;
     case ConfigActionType.SET_SIDER_COLLAPSED:
       state.siderCollapsed = value;
       return;

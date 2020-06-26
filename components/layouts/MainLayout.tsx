@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Menu, Icon } from "antd";
 import { ConfigContext } from "store/initialConfig";
 import AXBootLogo from "components/AXBootLogo";
@@ -54,13 +54,13 @@ const Layout = styled.div<{ isRoot?: boolean; hasSider?: boolean }>`
   background: #f0f2f5;
   position: relative;
 
-  ${p => {
+  ${(p) => {
     if (p.isRoot) {
       return `height: 100%;`;
     }
     return ``;
   }}
-  ${p => {
+  ${(p) => {
     if (p.hasSider) {
       return `flex-direction: row;`;
     }

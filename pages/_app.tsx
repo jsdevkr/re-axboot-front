@@ -4,11 +4,10 @@ import App, { AppProps } from "next/app";
 import axios from "axios";
 import { useImmerReducer } from "use-immer";
 import { defaultColors } from "styles/colors";
-import "styles/app.ts";
 import {
   ConfigContext,
   DispatchConfigContext,
-  DispatchThemeContext
+  DispatchThemeContext,
 } from "store/initialConfig";
 import { configReducer } from "store/configReducer";
 import { themeReducer } from "store/themeReducer";
@@ -18,14 +17,14 @@ import { IMenuItem } from "common/@interface";
 import { Icon } from "antd";
 
 interface IProps {}
-const MyApp: NextPage<AppProps & IProps, IProps> = props => {
+const MyApp: NextPage<AppProps & IProps, IProps> = (props) => {
   const { Component, pageProps } = props;
   const [config, dispatchConfig] = useImmerReducer(
     configReducer,
     defaultConfig
   );
   const [theme, dispatchTheme] = useImmerReducer(themeReducer, {
-    colors: defaultColors
+    colors: defaultColors,
   });
 
   return (
@@ -54,18 +53,18 @@ MyApp.getInitialProps = async ({ req }) => {
       url: "",
       submenu: [
         { label: "CHILD 1", url: "" },
-        { label: "CHILD 2", url: "" }
-      ]
-    }
+        { label: "CHILD 2", url: "" },
+      ],
+    },
   ];
   const mainMenu = [];
 
   return axios
     .get("http://apiurl")
-    .then(res => {
+    .then((res) => {
       return {};
     })
-    .catch(res => {
+    .catch((res) => {
       return {};
     });
 };

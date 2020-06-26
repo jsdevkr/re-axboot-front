@@ -11,7 +11,8 @@ export interface IConfigAction {
 export enum ConfigActionType {
   SET_WIDTH = "width",
   SET_HEIGHT = "height",
-  SET_SIDER_COLLAPSED = "siderCollapsed"
+  SET_SIDER_WIDTH = "siderWidth",
+  SET_SIDER_COLLAPSED = "siderCollapsed",
 }
 
 export type ConfigReducer = (state: IConfig, action: IConfigAction) => void;
@@ -27,7 +28,7 @@ export interface IThemeAction {
 export enum ThemeType {
   default = "default",
   dark = "dark",
-  light = "light"
+  light = "light",
 }
 
 export type ThemeReducer = (state: ITheme, action: IThemeAction) => ITheme;

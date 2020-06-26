@@ -1,10 +1,11 @@
-const withPlugins = require("next-compose-plugins");
+const withPlugins = require("next-compose-plugins"); // 플러그인 연결 깨깟이 도와주는 패키지,
 const withCSS = require("@zeit/next-css");
 const withLess = require("@zeit/next-less");
 const path = require("path");
 const fs = require("fs");
 
 //module.exports =
+// 
 module.exports = withPlugins(
   [
     [
@@ -41,7 +42,7 @@ module.exports = withPlugins(
         .forEach(dir => {
           config.resolve.alias[dir.name] = path.join(process.cwd(), dir.name);
         });
-
+      
       return config;
     }
   }

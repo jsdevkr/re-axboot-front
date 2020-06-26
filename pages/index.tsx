@@ -4,7 +4,7 @@ import { Colors } from "styles/colors";
 import {
   DispatchConfigContext,
   ConfigContext,
-  DispatchThemeContext
+  DispatchThemeContext,
 } from "store/initialConfig";
 import { MainLayout } from "components/layouts";
 import { ThemeContext } from "styled-components";
@@ -28,7 +28,7 @@ const Index: React.FC<IProps> = () => {
         onClick={() => {
           dispatchConfig({
             type: ConfigActionType.SET_SIDER_COLLAPSED,
-            value: !config.siderCollapsed
+            value: !config.siderCollapsed,
           });
         }}
       >
