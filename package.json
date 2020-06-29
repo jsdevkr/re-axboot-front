@@ -9,7 +9,8 @@
     "start": "next build && next start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start_next": "cross-env NODE_ENV=production PORT=9000 node server.js",
-    "start_next_1": "cross-env NODE_ENV=production PORT=9001 node server.js"
+    "start_next_1": "cross-env NODE_ENV=production PORT=9001 node server.js",
+    "start:less-var": "ts-node -T ./scripts/generate-less-var.ts"
   },
   "dependencies": {
     "@ant-design/colors": "^4.0.0",
@@ -17,7 +18,7 @@
     "@types/styled-components": "^5.0.1",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-less": "^1.0.1",
-    "antd": "^4.1.1",
+    "antd": "3.26.16",
     "axios": "^0.19.2",
     "chalk": "^4.0.0",
     "color": "^3.1.2",
@@ -34,10 +35,12 @@
     "use-immer": "^0.3.5"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.1",
     "@types/node": "^13.11.0",
     "@types/react": "^16.9.32",
     "babel-plugin-styled-components": "^1.10.7",
     "cross-env": "^7.0.2",
+    "fs-extra": "^9.0.1",
     "typescript": "^3.8.3"
   }
 }
