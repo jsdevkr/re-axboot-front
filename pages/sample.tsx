@@ -10,7 +10,6 @@ import { ConfigActionType, ThemeType } from "common/@interface";
 import { Button } from "antd";
 import styled, { ThemeContext } from "styled-components";
 import { MainLayout } from "components/layouts";
-// import * as appDark from "styles/less/app-dark.less";
 
 interface IProps {}
 

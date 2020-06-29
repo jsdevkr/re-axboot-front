@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import { NextPage } from "next";
 import App, { AppProps } from "next/app";
 import axios from "axios";
@@ -16,6 +16,9 @@ import defaultConfig from "store/defaultConfig";
 import { IMenuItem } from "common/@interface";
 import { Icon } from "antd";
 
+import * as appDark from "styles/less/app-dark.less";
+import * as appLight from "styles/less/app-light.less";
+
 interface IProps {}
 const MyApp: NextPage<AppProps & IProps, IProps> = (props) => {
   const { Component, pageProps } = props;
@@ -26,6 +29,19 @@ const MyApp: NextPage<AppProps & IProps, IProps> = (props) => {
   const [theme, dispatchTheme] = useImmerReducer(themeReducer, {
     colors: defaultColors,
   });
+
+  useEffect(() => {
+    let appStyle = document.getElementById("appStyle");
+    if (!appStyle) {
+      appStyle = document.createElement("style");
+      appStyle.id = "appStyle";
+      document.head.appendChild(appStyle);
+    }
+    console.log(appDark.toString());
+    appStyle.innerHTML = JSON.stringify(
+      theme.colors.theme === "dark" ? appDark : appLight
+    );
+  }, [theme]);
 
   return (
     <DispatchConfigContext.Provider value={dispatchConfig}>

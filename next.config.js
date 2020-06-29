@@ -5,16 +5,17 @@ const path = require("path");
 const fs = require("fs");
 
 //module.exports =
-// 
+//
 module.exports = withPlugins(
   [
     [
       withLess,
       {
+        cssModules: true,
         lessLoaderOptions: {
-          javascriptEnabled: true
-        }
-      }
+          javascriptEnabled: true,
+        },
+      },
     ],
     [
       withCSS,
@@ -22,28 +23,29 @@ module.exports = withPlugins(
         cssModules: true,
         cssLoaderOptions: {
           importLoaders: 1,
-          localIdentName: "[local]___[hash:base64:5]"
-        }
-      }
-    ]
+          localIdentName: "[local]___[hash:base64:5]",
+        },
+      },
+    ],
   ],
   {
     webpack(config, options) {
+      console.log(config);
       // Do not run type checking twice:
       const dirs = fs.readdirSync(process.cwd(), { withFileTypes: true });
       // add folder alias
       dirs
         .filter(
-          dir =>
+          (dir) =>
             dir.isDirectory() &&
             !dir.name.startsWith(".") &&
             !["pages", "node_modules"].includes(dir.name)
         )
-        .forEach(dir => {
+        .forEach((dir) => {
           config.resolve.alias[dir.name] = path.join(process.cwd(), dir.name);
         });
-      
+
       return config;
-    }
+    },
   }
 );
